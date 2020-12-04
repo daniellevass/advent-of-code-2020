@@ -3,7 +3,7 @@ import java.io.File
 fun main(args: Array<String>) {
     var validPasswords = 0;
 
-    File("/Users/daniellevass/Documents/GitHub/advent_of_code/src/main/resources/dec2Input.txt")
+    File("src/main/resources/dec2Input.txt")
         .forEachLine {
             if (validatePassword_partTwo(it)) {
                 validPasswords ++

@@ -46,7 +46,7 @@ fun main(args: Array<String>) {
 fun getDec3Input() : List<CharArray> {
     val map = ArrayList<CharArray>()
 
-    File("/Users/daniellevass/Documents/GitHub/advent_of_code/src/main/resources/dec3Input.txt")
+    File("src/main/resources/dec3Input.txt")
         .forEachLine {
             map.add(it.toCharArray())
         }
