@@ -4,7 +4,7 @@ fun main(args: Array<String>) {
     partTwo();
 }
 
-fun partOne() {
+private fun partOne() {
     val input = getInput();
     println("we have " + input.size + " things")
 
@@ -28,7 +28,7 @@ fun partOne() {
     print(pairs.toString())
 }
 
-fun partTwo() {
+private fun partTwo() {
     val input = getInput();
     println("we have " + input.size + " things")
 
@@ -76,7 +76,7 @@ fun partTwo() {
 
 }
 
-fun getInput() : List<Int> {
+private fun getInput() : List<Int> {
     return arrayListOf(
         1772,
         1065,

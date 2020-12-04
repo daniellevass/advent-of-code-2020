@@ -43,7 +43,7 @@ fun main(args: Array<String>) {
     println("we encountered $treesEncountered trees")
 }
 
-fun getDec3Input() : List<CharArray> {
+private fun getDec3Input() : List<CharArray> {
     val map = ArrayList<CharArray>()
 
     File("src/main/resources/dec3Input.txt")

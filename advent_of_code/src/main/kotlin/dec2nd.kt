@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
     println("we got $validPasswords valid passwords" )
 }
 
-fun validatePassword_partOne(line: String) : Boolean {
+private fun validatePassword_partOne(line: String) : Boolean {
 
     val components = line.split(" ")
 
@@ -35,7 +35,7 @@ fun validatePassword_partOne(line: String) : Boolean {
     return false
 }
 
-fun validatePassword_partTwo(line: String) : Boolean {
+private fun validatePassword_partTwo(line: String) : Boolean {
 
     val components = line.split(" ")
 

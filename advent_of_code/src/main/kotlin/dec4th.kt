@@ -39,7 +39,7 @@ fun main(args: Array<String>) {
 }
 
 
-fun dec4th_validateRecord(record: Map<String, String>) : Boolean {
+private fun dec4th_validateRecord(record: Map<String, String>) : Boolean {
     var isValid = true
 
     val requiredKeys = arrayListOf("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid")
@@ -93,7 +93,7 @@ fun dec4th_validateRecord(record: Map<String, String>) : Boolean {
     return isValid
 }
 
-fun dec4th_validateNumber(item: String, earliest: Int, latest: Int) : Boolean {
+private fun dec4th_validateNumber(item: String, earliest: Int, latest: Int) : Boolean {
     try {
         val number = item.toInt()
         if (number in earliest..latest) {
@@ -111,7 +111,7 @@ fun dec4th_validateNumber(item: String, earliest: Int, latest: Int) : Boolean {
 If cm, the number must be at least 150 and at most 193.
 If in, the number must be at least 59 and at most 76.
  */
-fun dec4th_validateHeight(item: String) : Boolean {
+private fun dec4th_validateHeight(item: String) : Boolean {
 
     val unit = item.substring(item.length -2, item.length).toLowerCase()
     val measurement = item.substring(0, item.length-2)
@@ -127,18 +127,18 @@ fun dec4th_validateHeight(item: String) : Boolean {
 }
 
 //hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f.
-fun dec4th_validateHexColour(item: String) : Boolean {
+private fun dec4th_validateHexColour(item: String) : Boolean {
     val colorPattern: Pattern = Pattern.compile("#([0-9a-f]{6})")
     return colorPattern.matcher(item).matches()
 }
 
 //exactly one of: amb blu brn gry grn hzl oth.
-fun dec4th_validateEyeColour(item: String) : Boolean {
+private fun dec4th_validateEyeColour(item: String) : Boolean {
     val validColours = arrayListOf("amb","blu", "brn", "gry", "grn", "hzl", "oth")
     return validColours.contains(item)
 }
 
-fun dec4th_validatePassportNumber(item: String) : Boolean {
+private fun dec4th_validatePassportNumber(item: String) : Boolean {
     try {
         val number = item.toInt()
         return item.length == 9
