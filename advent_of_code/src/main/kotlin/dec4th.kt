@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
     val currentRecord = HashMap<String, String>()
     File("src/main/resources/dec4Input.txt")
         .forEachLine {
-            if (it.isEmpty) {
+            if (it.length > 0) {
                 // finish the record
                 if (currentRecord.isNotEmpty()) {
                     if (dec4th_validateRecord(currentRecord)) {

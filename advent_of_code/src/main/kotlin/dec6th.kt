@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
 
     File("src/main/resources/dec6_input.txt")
         .forEachLine {
-            if (it.isEmpty) {
+            if (it.length > 0) {
                 count += dec6th_calculateAllEntries(currentRecord)
                 currentRecord.clear()
             } else {
