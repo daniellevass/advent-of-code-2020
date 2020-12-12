@@ -199,11 +199,6 @@ fun dec11_calculateCellsOccupiedAroundcell_part2(game:List<List<MAP_TILE>>, coor
 }
 
 fun dec11_calculateChairNorth(game:List<List<MAP_TILE>>, coordinate: Pair<Int, Int>) : Boolean {
-    // if we can't go further north, then just return nothing here
-    if (coordinate.first == 0) {
-        return false
-    }
-
     var x = coordinate.first -1
     while (x >= 0) {
         // return on the first instance of these
@@ -219,11 +214,6 @@ fun dec11_calculateChairNorth(game:List<List<MAP_TILE>>, coordinate: Pair<Int, I
 }
 
 fun dec11_calculateChairSouth(game:List<List<MAP_TILE>>, coordinate: Pair<Int, Int>) : Boolean {
-    // check if we're already at the boundary
-    if (coordinate.first == game.size -1) {
-        return false
-    }
-
     var x = coordinate.first + 1
     while (x < game.size) {
         if (game[x][coordinate.second] == MAP_TILE.OCCUPIED) {
@@ -238,11 +228,6 @@ fun dec11_calculateChairSouth(game:List<List<MAP_TILE>>, coordinate: Pair<Int, I
 }
 
 fun dec11_calculateChairEast(game: List<List<MAP_TILE>>, coordinate: Pair<Int, Int>) : Boolean {
-    // calculate boundary
-    if (coordinate.second == (game[0].size -1)) {
-        return false
-    }
-
     var y = coordinate.second +1
     while (y < game[0].size) {
         if (game[coordinate.first][y] == MAP_TILE.OCCUPIED) {
@@ -257,11 +242,6 @@ fun dec11_calculateChairEast(game: List<List<MAP_TILE>>, coordinate: Pair<Int, I
 }
 
 fun dec11_calculateChairWest(game: List<List<MAP_TILE>>, coordinate: Pair<Int, Int>) : Boolean {
-    // calculate boundary
-    if (coordinate.second == 0) {
-        return false
-    }
-
     var y = coordinate.second -1
     while (y >= 0) {
         if (game[coordinate.first][y] == MAP_TILE.OCCUPIED) {
@@ -275,13 +255,6 @@ fun dec11_calculateChairWest(game: List<List<MAP_TILE>>, coordinate: Pair<Int, I
 }
 
 fun dec11_calculateChairSouthEast(game: List<List<MAP_TILE>>, coordinate: Pair<Int, Int>) : Boolean {
-
-    // boundary means either edge
-    if (coordinate.first == game.size -1
-        || coordinate.second == game[0].size -1) {
-        return false
-    }
-
     var x = coordinate.first +1
     var y = coordinate.second +1
 
@@ -300,13 +273,6 @@ fun dec11_calculateChairSouthEast(game: List<List<MAP_TILE>>, coordinate: Pair<I
 
 // more chairs down, more chairs left
 fun dec11_calculateChairSouthWest(game: List<List<MAP_TILE>>, coordinate: Pair<Int, Int>) : Boolean {
-
-    // boundary means either edge
-    if (coordinate.first == game.size -1
-        || coordinate.second == 0) {
-        return false
-    }
-
     var x = coordinate.first +1
     var y = coordinate.second -1
 
@@ -325,13 +291,6 @@ fun dec11_calculateChairSouthWest(game: List<List<MAP_TILE>>, coordinate: Pair<I
 
 // more chairs up, more chairs right
 fun dec11_calculateChairNorthEast(game: List<List<MAP_TILE>>, coordinate: Pair<Int, Int>) : Boolean {
-
-    // boundary means either edge
-    if (coordinate.first == 0
-        || coordinate.second == game.size -1 ) {
-        return false
-    }
-
     var x = coordinate.first -1
     var y = coordinate.second +1
 
@@ -349,13 +308,6 @@ fun dec11_calculateChairNorthEast(game: List<List<MAP_TILE>>, coordinate: Pair<I
 }
 
 fun dec11_calculateChairNorthWest(game: List<List<MAP_TILE>>, coordinate: Pair<Int, Int>) : Boolean {
-
-    // boundary means either edge
-    if (coordinate.first == 0
-        || coordinate.second == 0) {
-        return false
-    }
-
     var x = coordinate.first -1
     var y = coordinate.second -1
 
@@ -371,4 +323,3 @@ fun dec11_calculateChairNorthWest(game: List<List<MAP_TILE>>, coordinate: Pair<I
 
     return false
 }
-
