@@ -28,7 +28,33 @@ class Dec13thKtTest {
         assertEquals(10, dec13_getTimeNearestNextDeparture(13, 939))
     }
 
+    @Test
+    fun dec13_part2_doHardMaths_part1() {
+        // 1789,37,47,1889
 
+        val busses = arrayListOf(
+            Bus(1789, 0),
+            Bus(37, 1),
+            Bus(47, 2),
+            Bus(1889, 3)
+        )
+
+        assertEquals(1202161486L, dec13_part2_doHardMaths(busses))
+    }
+
+    @Test
+    fun dec13_part2_doHardMaths_part1_2() {
+        // 67,x,7,59,61
+
+        val busses = arrayListOf(
+            Bus(67, 0),
+            Bus(7, 2),
+            Bus(59, 3),
+            Bus(61, 4)
+        )
+
+        assertEquals(779210L, dec13_part2_doHardMaths(busses))
+    }
 
 }
 

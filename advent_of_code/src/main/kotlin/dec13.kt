@@ -1,4 +1,5 @@
 import java.io.File
+import java.math.BigInteger
 import kotlin.math.abs
 import kotlin.math.floor
 
@@ -16,7 +17,9 @@ fun main(args: Array<String>) {
     // get the other bus times
     val busTimes = dec13_part2_readBusTimes(file[1])
 
-    dec13_part2_doHardMaths(busTimes)
+//    dec13_part2_doHardMaths(busTimes)
+
+    dec13_part2_stepComplicately(busTimes)
 }
 
 fun dec13_part1(myArrival : Int, busTimes: List<Int>) {
@@ -79,7 +82,7 @@ fun dec13_part2_readBusTimes(line: String) : List<Bus> {
     return busTimes
 }
 
-fun dec13_part2_doHardMaths(busTimes: List<Bus>) {
+fun dec13_part2_doHardMaths(busTimes: List<Bus>) : Long {
 
     // we only need to go in multiplications of the bus times
     // e.g. 17,x,13,19 is 3417
@@ -93,20 +96,20 @@ fun dec13_part2_doHardMaths(busTimes: List<Bus>) {
 
     println("our biggest bus time is ${sortedBusTimes[0]}")
 
-    val earliest = 100000000
-    val latest = earliest + 10000000000000
+    val earliest:Long = 62_932_475_746_153
+    val latest = earliest + 1_000_000_000L
+    var time0th = 0L
 
     for (a in earliest..latest) {
 
         val bigBusTime = (sortedBusTimes[0].interval * a)
-        val time0th = bigBusTime - sortedBusTimes[0].index
+        time0th = bigBusTime - sortedBusTimes[0].index
 
         if (dec13_part2_validateAllBussesForTime(time0th, sortedBusTimes)) {
-            return
+            break
         }
-
     }
-
+    return time0th
 }
 
 fun dec13_part2_doesBusDepartFromTimeWithIndex(time: Long, bus: Bus) : Boolean{
@@ -127,4 +130,23 @@ fun dec13_part2_validateAllBussesForTime(time: Long, busList: List<Bus>) : Boole
     } else {
         false
     }
+}
+
+fun dec13_part2_stepComplicately(buses: List<Bus>) {
+
+    var timestamp: Long = 0L
+    var step:Long = 1L
+
+    for (bus in buses) {
+
+        while ( (timestamp + bus.index) % bus.interval != 0L) {
+            timestamp += step
+        }
+
+        // because they're co-prime numbers we don't need to find
+        // the lowest common denominator, we can just times by the interval
+        step *= bus.interval
+    }
+
+    println("last timestamp = $timestamp")
 }
