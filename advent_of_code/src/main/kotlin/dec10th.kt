@@ -1,6 +1,4 @@
 import java.io.File
-import java.lang.Exception
-import kotlin.math.pow
 
 fun main(args: Array<String>) {
 
